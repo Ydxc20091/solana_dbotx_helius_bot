@@ -11,7 +11,14 @@ cargo run --release            # default DRY mode
 EXEC_MODE=LIVE cargo run --release
 ```
 
-Required environment variables:
+Configuration is loaded from environment variables. You can copy `.env.example`
+to `.env` and fill in your secrets:
+
+```bash
+cp .env.example .env
+```
+
+The key variables are:
 
 ```bash
 DBOTX_API_KEY=...
@@ -25,6 +32,8 @@ BASE=TOKEN
 QUOTE=SOL
 ORDER_SIZE_SOL=0.5
 ```
+
+For a detailed Chinese deployment guide, see [`docs/deploy.zh.md`](docs/deploy.zh.md).
 
 This codebase only implements a subset of the intended functionality and is
 meant as a foundation for further development.

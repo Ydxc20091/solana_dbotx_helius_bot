@@ -8,6 +8,7 @@ mod signal;
 mod util;
 
 use clap::Parser;
+use dotenvy::dotenv;
 
 use config::{Cli, Config, ExecMode};
 use exec::Executor;
@@ -15,7 +16,8 @@ use model::Order;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Parse CLI and load environment config.
+    // Load `.env` files and parse CLI arguments, then load environment config.
+    dotenv().ok();
     let cli = Cli::parse();
     let cfg = Config::from_env().expect("missing env config");
 
